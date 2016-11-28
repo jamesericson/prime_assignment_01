@@ -8,26 +8,25 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <title>Salary Calculator</title>
   </head>
-  <body>
+
+  <header>
     <h1>Calculate Labor Costs</h1>
+  </header>
+  <body>
     <h2>Employees</h2>
     <div id="allEmployeeTable"></div>
-    <h2>Total Annual Salary Costs</h2>
+    <h2>Total Monthly Salary Costs</h2>
     <div id="totalSalary"></div>
 
 
     <h2>Add an Employee</h2>
     <div id="newlyAdded"></div>
     <form id="employeeInfo">
-      <!-- <h3>First Name</h3> -->
+
       <input id = "firstName" type = "text" placeholder="First Name">
-      <!-- <h3>Last Name</h3> -->
       <input id = "lastName" type = "text" placeholder="Last Name">
-      <!-- <h3>ID</h3> -->
       <input id = "employeeId" type = "text" placeholder="Employee ID">
-      <!-- <h3>Job Title</h3> -->
       <input id = "jobTitle" type = "text" placeholder="Job Title">
-      <!-- <h3>Annual Salary</h3> -->
       <input id = "annualSalary" type = "text" placeholder="Annual Salary"><br>
       <br><button type="submit" onClick="return newEmployee()">Submit and Add</button>
     </form>
@@ -35,14 +34,10 @@
     <h2>Remove an Employee</h2>
     <div id="newlyRemoved"></div>
     <form id="employeeInfo">
-      <!-- <h3>First Name</h3> -->
       <input  class="removeInput" id = "firstNameRM" type = "text" placeholder="First Name">
-      <!-- <h3>Last Name</h3> -->
       <input  class="removeInput" id = "lastNameRM" type = "text" placeholder="Last Name">
-      <!-- <h3>ID</h3> -->
       <h3 class="removeInput" >--or--</h3>
       <input  class="removeInput" id = "employeeIdRM" type = "text" placeholder="Employee ID">
-      <!-- <h3>Job Title</h3> -->
 
       <br><br><button type="submit" onClick="return removeEmployee()">Submit and Remove</button>
     </form>

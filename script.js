@@ -10,7 +10,7 @@ var addEmployee = function(firstName, idNum, lastName, salary, title){
     lastName: lastName,
     salary: salary,
     title: title
-  };
+  };//end array
   employees.push(newEmployee);
 };// end of addToInventory
 
@@ -35,7 +35,7 @@ var newEmployee = function(){
   document.getElementById( 'newlyAdded' ).innerHTML = toHTML;
   document.getElementById( 'newlyRemoved' ).innerHTML = "";
   return false;
-}
+}// end newEmployee
 
 var removeEmployee = function(){
   var index = -1;
@@ -50,6 +50,7 @@ var removeEmployee = function(){
   document.getElementById( 'newlyAdded' ).innerHTML = "";
   $('input').val('');
 
+  //below logic finds the matching employee by either idNum or first&last name and weeds out no matches and incorrect inputs (blank)
   if (idNum == ""){
     //identify the employee, by finding a match
     for (var i = 0; i < employees.length; i++) {
@@ -81,22 +82,23 @@ var removeEmployee = function(){
   var toHTML = "<p>Just removed employee: " +firstName+ " " +lastName+ "</p>";
   document.getElementById( 'newlyRemoved' ).innerHTML = toHTML;
   return false;
-}
+}// end removeEmployee
 
 var displayTotalSalary = function(){
   var toHTML = "";
   var totalSalary = 0;
   for (var i = 0; i < employees.length; i++) {
-    console.log("this is a salary: " + Number(employees[i].salary));
+    console.log("adding this is a salary: " + Number(employees[i].salary));
     totalSalary += Number(employees[i].salary);
   }
-  console.log("this is the totalSalary: " + totalSalary);
+  console.log("this is the total'yearly'Salary(still need to divide by 12): " + totalSalary);
+  totalSalary = Math.round(totalSalary/12);
   toHTML = "<h3> = $" + totalSalary+"</h3>";
   document.getElementById( 'totalSalary' ).innerHTML = toHTML;
-};
+};// end displayTotalSalary
 
 var displayAllEmployees = function() {
-
+  //creates a table with all of the employees 
   var htmlString = "<table><tr><th>Name</th><th>ID #</th><th>Title</th><th>Salary</th></tr>";
   for (var i = 0; i < employees.length; i++) {
 
@@ -110,12 +112,14 @@ var displayAllEmployees = function() {
   document.getElementById( 'allEmployeeTable' ).innerHTML = htmlString;
 
   displayTotalSalary();
-};
+};// end displayAllEmployees
 
+
+// bellow is some arbitrary names to give example of how an employer would have existing employees loaded with the page
 addEmployee( "James", "9388", "Ericson", "42000", "Developer");
 addEmployee( "Beth", "9925", "Ritchie", "78000", "Therapist");
 addEmployee( "Nate", "7311", "Eiesland", "61000", "Enviroment Director");
 addEmployee( "Aliss", "54002", "Ricci", "63000", "Creative Cordinator");
 addEmployee( "Mark", "2587", "Ritchie", "125000", "Boss");
-
+// call funtion to show the employee table from employees array when the page is loaded
 displayAllEmployees();

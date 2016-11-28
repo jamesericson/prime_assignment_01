@@ -1,12 +1,21 @@
+html {
+  background-color: #EBE5D3;
+}
+body {
+  background-color: white;
+  width: 700px;
+  margin: 80px auto;
+  padding: 50px;
+}
 h1, h2, h3, p {
   text-align: center;
 }
-h1 {
-  font-size: 45px;
+header {
+  font-size: 20px;
   font-weight: bold;
   border: 3px solid black;
   padding: 5px;
-  width: 600px;
+  width: 450px;
   margin: 20px auto;
 }
 form {
