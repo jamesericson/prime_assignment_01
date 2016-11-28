@@ -97,7 +97,6 @@ var displayTotalSalary = function(){
 
 var displayAllEmployees = function() {
 
-  var table = document.getElementById("employeeTable");
   var htmlString = "<table><tr><th>Name</th><th>ID #</th><th>Title</th><th>Salary</th></tr>";
   for (var i = 0; i < employees.length; i++) {
 
@@ -105,17 +104,16 @@ var displayAllEmployees = function() {
     //htmlString += "<td>" + employees[i].lastName + "</td>";
     htmlString += "<td>" + employees[i].idNum + "</td>";
     htmlString += "<td>" + employees[i].title + "</td>";
-    htmlString += "<td>" + employees[i].salary + "</td> </tr>";
+    htmlString += "<td>$" + employees[i].salary + "</td> </tr>";
   }
   htmlString += "</table>";
-  console.log(htmlString);
   document.getElementById( 'allEmployeeTable' ).innerHTML = htmlString;
 
   displayTotalSalary();
 };
 
 addEmployee( "James", "9388", "Ericson", "42000", "Developer");
-addEmployee( "Beth", "9925", "Ritchie", "78000", "Therepist");
+addEmployee( "Beth", "9925", "Ritchie", "78000", "Therapist");
 addEmployee( "Nate", "7311", "Eiesland", "61000", "Enviroment Director");
 addEmployee( "Aliss", "54002", "Ricci", "63000", "Creative Cordinator");
 addEmployee( "Mark", "2587", "Ritchie", "125000", "Boss");
