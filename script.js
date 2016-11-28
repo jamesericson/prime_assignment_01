@@ -33,7 +33,53 @@ var newEmployee = function(){
   displayAllEmployees();
   var toHTML = "<p>Just added employee: " +firstName+ " " +lastName+ "</p>";
   document.getElementById( 'newlyAdded' ).innerHTML = toHTML;
+  document.getElementById( 'newlyRemoved' ).innerHTML = "";
+  return false;
+}
 
+var removeEmployee = function(){
+  var index = -1;
+
+  var firstName = document.getElementById( 'firstNameRM' ).value;
+  console.log("remove firstName: " + firstName);
+  var idNum = document.getElementById( 'employeeIdRM' ).value;
+  console.log("remove idNum: " + idNum);
+  var lastName = document.getElementById( 'lastNameRM' ).value;
+  console.log("remove lastName: " + lastName);
+
+  document.getElementById( 'newlyAdded' ).innerHTML = "";
+  $('input').val('');
+
+  if (idNum == ""){
+    //identify the employee, by finding a match
+    for (var i = 0; i < employees.length; i++) {
+      if (employees[i].firstName == firstName && employees[i].lastName == lastName){
+        index = i;
+        idNum = employees[i].idNum;
+      }// end nested if
+    } //end for
+  } else {
+    for (var i = 0; i < employees.length; i++) {
+      if (employees[i].idNum == idNum){
+        index = i;
+        firstName = employees[i].firstName;
+        lastName = employees[i].lastName;
+      }// end nested if
+    } //end for
+  }// end if/else
+  console.log("removing employee ID #: "+ idNum + " at this index: " + index);
+  if (index == -1){
+    document.getElementById( 'newlyRemoved' ).innerHTML = "<p>no matching employees</p>";
+    return false;
+  } else {
+      var removed = employees.splice(index, 1);
+  }//end if/else
+  console.log(removed);
+
+
+  displayAllEmployees();
+  var toHTML = "<p>Just removed employee: " +firstName+ " " +lastName+ "</p>";
+  document.getElementById( 'newlyRemoved' ).innerHTML = toHTML;
   return false;
 }
 
@@ -70,8 +116,8 @@ var displayAllEmployees = function() {
 
 addEmployee( "James", "9388", "Ericson", "42000", "Developer");
 addEmployee( "Beth", "9925", "Ritchie", "78000", "Therepist");
-addEmployee( "Nate", "7311", "Eiesland", "61000", "Enviroment Cordinator");
-addEmployee( "Aliss", "54002", "Ricci", "63000", "Creative Director");
+addEmployee( "Nate", "7311", "Eiesland", "61000", "Enviroment Director");
+addEmployee( "Aliss", "54002", "Ricci", "63000", "Creative Cordinator");
 addEmployee( "Mark", "2587", "Ritchie", "125000", "Boss");
 
 displayAllEmployees();
